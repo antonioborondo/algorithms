@@ -26,9 +26,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Install Conan
+        run: pip install conan==2.20.1
+      - name: Configure Conan
+        run: conan profile detect
+      - name: Install Conan packages
+        run: conan install . --output-folder=build --build=missing --settings compiler=gcc --settings compiler.cppstd=20 --settings build_type=Release
       - name: Configure
-        run: cmake -DCMAKE_BUILD_TYPE=Release -B build
+        run: cmake --preset conan-release
       - name: Build
-        run: cmake --build build
-      - name: Run
-        run: ./build/algorithms
+        run: cmake --build --preset conan-release
+      - name: Test
+        working-directory: build
+        run: ctest --verbose --preset conan-release

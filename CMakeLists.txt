@@ -9,6 +9,7 @@ add_library(algorithms
   src/search/binary.cc
   src/search/linear.cc
   src/sort/bubble.cc
+  src/sort/heap.cc
   src/sort/insertion.cc
   src/sort/merge.cc
   src/sort/quicksort.cc
@@ -27,6 +28,7 @@ add_executable(algorithms_test
   test/search/linear_test.cc
   test/sort/base_test.cc
   test/sort/bubble_test.cc
+  test/sort/heap_test.cc
   test/sort/insertion_test.cc
   test/sort/merge_test.cc
   test/sort/quicksort_test.cc

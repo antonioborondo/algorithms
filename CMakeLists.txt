@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(algorithms
+  src/graph/dijkstra.cc
   src/search/binary.cc
   src/search/linear.cc
   src/sort/bubble.cc
@@ -24,6 +25,7 @@ target_include_directories(algorithms
 find_package(GTest REQUIRED)
 
 add_executable(algorithms_test
+  test/graph/dijkstra_test.cc
   test/search/binary_test.cc
   test/search/linear_test.cc
   test/sort/base_test.cc
